@@ -8,7 +8,8 @@ function CurrencyRow () {
       className="input input-bordered input-warning w-full max-w-xs flex-none" /> 
 
       <select 
-      className="select select-warning w-full max-w-xs flex-1"> 
+      className="select select-warning w-full max-w-xs flex-1 w-32"> 
+        <option disabled selected>Currency</option>
         <option value="hi">hi</option>
       </select>
     </div>
