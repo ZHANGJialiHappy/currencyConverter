@@ -1,5 +1,8 @@
+type Props = {currencyOptions: string[]}
 
-function CurrencyRow () {
+
+
+function CurrencyRow ({currencyOptions}: Props) {
   return (
     <div className="flex gap-5">
       <input 
@@ -9,8 +12,10 @@ function CurrencyRow () {
 
       <select 
       className="select select-warning w-full max-w-xs flex-1 w-32"> 
-        <option disabled selected>Currency</option>
-        <option value="hi">hi</option>
+      {currencyOptions.map((option: string, key: number)=>
+      <option value={option}>{option}</option>
+      )}
+
       </select>
     </div>
   )
