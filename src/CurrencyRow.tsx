@@ -1,5 +1,3 @@
-import { FC } from "react"
-
 type Props = {
   currencyOptions: string[],
   selectedCurrency: string,

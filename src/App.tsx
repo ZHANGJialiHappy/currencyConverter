@@ -27,15 +27,15 @@ function App() {
   let fromAmount: number | string, toAmount: number | string;
   if (amountInFromCurrency) {
     fromAmount = amount;
-    toAmount = typeof(fromAmount) === "string" ? "" : fromAmount * exchangeRate;
-  } else{
+    toAmount = typeof (fromAmount) === "string" ? "" : fromAmount * exchangeRate;
+  } else {
     toAmount = amount;
-    fromAmount = typeof(toAmount) === "string" ? "" :toAmount / exchangeRate;
-  } 
+    fromAmount = typeof (toAmount) === "string" ? "" : toAmount / exchangeRate;
+  }
 
   const handleFromAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if(value) {
+    if (value) {
       setAmount(Number(value));
     } else {
       setAmount("");
@@ -44,7 +44,7 @@ function App() {
   }
   const handleToAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if(value) {
+    if (value) {
       setAmount(Number(value));
     } else {
       setAmount("");
@@ -53,13 +53,15 @@ function App() {
   }
 
   useEffect(() => {
-    fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
+    if (fromCurrency && toCurrency) {
+      fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
       // fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
       // 0
       .then(res => res.json())
       .then(data => setExchangeRate(data.rates[toCurrency]))
+    }
   }, [fromCurrency, toCurrency]);
-
+  
   return (
     <div className="flex justify-center items-center min-h-screen text-center">
       <div>
