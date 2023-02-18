@@ -4,7 +4,7 @@ type Props = {
   currencyOptions: string[],
   selectedCurrency: string,
   onChangeCurrency(e:React.ChangeEvent<HTMLSelectElement>): void,
-  amount: number,
+  amount: number | string,
   onChangeAmount(e:React.ChangeEvent<HTMLInputElement>): void
 }
 
@@ -24,7 +24,7 @@ function CurrencyRow ({currencyOptions, selectedCurrency, onChangeCurrency, amou
       <select 
       value = {selectedCurrency}
       onChange = {onChangeCurrency}
-      className = "select select-warning w-full max-w-xs flex-1 w-32"> 
+      className = "select select-warning w-full max-w-xs flex-1 w-64"> 
       {currencyOptions.map((option: string)=>
       <option key = {option} value = {option}>{option}</option>
       )}
