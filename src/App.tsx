@@ -26,10 +26,10 @@ function App() {
   let fromAmount: number | string, toAmount: number | string;
   if (amountInFromCurrency ) {
     fromAmount = amount;
-    toAmount = typeof (fromAmount) === "number" && fromAmount>=0 ? (Math.round((fromAmount * exchangeRate)  * 100) / 100).toFixed(2): "";
+    toAmount = typeof (fromAmount) === "number" && fromAmount>=0 ? (Math.round((fromAmount * exchangeRate)  * 100) / 100): "";
   } else {
     toAmount = amount;
-    fromAmount = typeof (toAmount) === "number" && toAmount>=0 ? (Math.round((toAmount / exchangeRate)  * 100) / 100) : ""
+    fromAmount = typeof (toAmount) === "number" && toAmount>=0 ? (Math.round((toAmount / exchangeRate)  * 100) / 100): ""
   }
 
   const handleFromAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
