@@ -14,6 +14,7 @@ function CurrencyRow ({currencyOptions, selectedCurrency, onChangeCurrency, amou
     <div className="flex gap-5">
       <input 
       type = "number" 
+      min="0"
       placeholder = "Type a number" 
       className = "input input-bordered input-warning w-full max-w-xs flex-none" 
       value = {amount}
@@ -26,8 +27,8 @@ function CurrencyRow ({currencyOptions, selectedCurrency, onChangeCurrency, amou
       {currencyOptions.map((option: string)=>
       <option key = {option} value = {option}>{option}</option>
       )}
-
       </select>
+
     </div>
   )
 }

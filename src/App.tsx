@@ -24,16 +24,16 @@ function App() {
   }, [])
 
   let fromAmount: number | string, toAmount: number | string;
-  if (amountInFromCurrency) {
+  if (amountInFromCurrency ) {
     fromAmount = amount;
-    toAmount = typeof (fromAmount) === "string" ? "" : fromAmount * exchangeRate;
+    toAmount = typeof (fromAmount) === "number" && fromAmount>=0 ? fromAmount * exchangeRate : "";
   } else {
     toAmount = amount;
-    fromAmount = typeof (toAmount) === "string" ? "" : toAmount / exchangeRate;
+    fromAmount = typeof (toAmount) === "number" && toAmount>=0 ? toAmount / exchangeRate : ""
   }
 
   const handleFromAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value:number | string = e.target.value;
     if (value) {
       setAmount(Number(value));
     } else {
