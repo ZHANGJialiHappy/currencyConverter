@@ -16,14 +16,14 @@ function CurrencyRow ({currencyOptions, selectedCurrency, onChangeCurrency, amou
       type = "number" 
       min="0"
       placeholder = "Type a number" 
-      className = "input input-bordered input-warning w-full max-w-xs flex-none" 
+      className = "text-lg input input-bordered input-warning w-full max-w-xs flex-none" 
       value = {amount}
       onChange={onChangeAmount}/> 
 
       <select 
       value = {selectedCurrency}
       onChange = {onChangeCurrency}
-      className = "select select-warning max-w-xs flex-1 w-32"> 
+      className = "text-base select select-warning max-w-xs flex-1 w-32"> 
       {currencyOptions.map((option: string)=>
       <option key = {option} value = {option}>{option}</option>
       )}

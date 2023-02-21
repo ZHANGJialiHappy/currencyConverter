@@ -54,8 +54,6 @@ function App() {
   useEffect(() => {
     if (fromCurrency && toCurrency) {
       fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
-      // fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
-      // 0
       .then(res => res.json())
       .then(data => setExchangeRate(data.rates[toCurrency]))
     }
@@ -64,7 +62,7 @@ function App() {
   return (
     <div className="flex justify-center items-center min-h-screen text-center">
       <div>
-        <h1 className="text-2xl mb-5">Convert</h1>
+        <h1 className="text-2xl mb-5">CURRENCY CONVERTER</h1>
         <CurrencyRow
           currencyOptions={currencyOptions}
           selectedCurrency={fromCurrency}
@@ -72,7 +70,7 @@ function App() {
           onChangeAmount={handleFromAmountChange}
           amount={fromAmount}
         />
-        <div>=</div>
+        <div className="text-2xl my-3">=</div>
         <CurrencyRow
           currencyOptions={currencyOptions}
           selectedCurrency={toCurrency}
@@ -80,6 +78,7 @@ function App() {
           onChangeAmount={handleToAmountChange}
           amount={toAmount}
         />
+        <h1 className="text-2xl mt-3">{`1 ${fromCurrency} = ${(Math.round(exchangeRate  * 100) / 100)} ${toCurrency}`}</h1>
       </div>
     </div>
   );
